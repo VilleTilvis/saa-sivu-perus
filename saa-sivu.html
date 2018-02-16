@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title> Villen sääsivu: Helsingin sää </title>
+</head>
+
+<body>
+<h1>Villen sääsivu</h1>
+</body>
+
+<img id="oikea-kuva" alt="hieno sääkuva" style ="height:480px; width:640px">  </img>
+
+
+<script>
+        fetch("https://weatherapp.eficode.fi/api/forecast").then(function(response) {
+        response.json()
+        .then(function(json) {
+            var oikeaURL = "https://weatherapp.eficode.fi/img/" + json.icon +".svg";
+            document.getElementById("oikea-kuva").src = oikeaURL;
+            });
+        });
+    </script>
+
+</html>
